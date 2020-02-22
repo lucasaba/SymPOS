@@ -1,0 +1,47 @@
+# tell docker what version of the docker-compose.yml were using
+version: '3.6'
+
+# define the network
+networks:
+  web-network:
+
+# start the services section
+services:
+  php-cli:
+    build:
+      context: .docker/php-cli
+    tty: true
+    volumes:
+      - ./:/var/www
+    networks:
+      - web-network
+
+  nginx:
+    build:
+      context: .docker/nginx
+    ports:
+      - "8080:80"
+    tty: true
+    volumes:
+      - ./:/var/www
+      - .docker/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - web-network
+
+  php-fpm:
+    build:
+      context: .docker/php-fpm
+    tty: true
+    volumes:
+      - ./:/var/www
+    networks:
+      - web-network
+
+  mariadb:
+    build:
+      context: .docker/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: sympos
+      MYSQL_USER: sympos_user
+      MYSQL_PASSWORD: sympos_password
