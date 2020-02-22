@@ -23,3 +23,8 @@ clean:
 
 cli-shell:
 	@docker-compose exec -w "/var/www" php-cli bash
+
+init:
+	@make -s build-images
+	@make -s start-containers
+	@docker-compose exec -w "/var/www" php-cli composer install

@@ -1,12 +1,12 @@
 FROM php:7.4-cli
 
 RUN apt-get update \
-    && apt-get install -y $PHPIZE_DEPS wget git \
+    && apt-get install -y $PHPIZE_DEPS wget git libzip-dev unzip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pecl install xdebug-2.9.2 \
     && docker-php-ext-enable xdebug.so \
-    && docker-php-ext-install mysqli \
+    && docker-php-ext-install mysqli zip \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN wget https://get.symfony.com/cli/installer -O - | bash \
