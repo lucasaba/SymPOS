@@ -45,3 +45,5 @@ services:
       MYSQL_DATABASE: sympos
       MYSQL_USER: sympos_user
       MYSQL_PASSWORD: sympos_password
+    networks:
+      - web-network

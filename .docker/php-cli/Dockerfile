@@ -6,7 +6,7 @@ RUN apt-get update \
 
 RUN pecl install xdebug-2.9.2 \
     && docker-php-ext-enable xdebug.so \
-    && docker-php-ext-install mysqli zip \
+    && docker-php-ext-install mysqli zip pdo pdo_mysql \
     && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN wget https://get.symfony.com/cli/installer -O - | bash \
