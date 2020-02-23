@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lucasaba/SymPOS.svg?branch=master)](https://travis-ci.org/lucasaba/SymPOS)
+
 # SymPOS
 
 A Symfony 5 POS - a simple application to test S5
