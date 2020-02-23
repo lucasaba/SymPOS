@@ -21,10 +21,11 @@ restart-containers:
 clean:
 	@docker system prune --volumes --force
 
-cli-shell:
-	@docker-compose exec -w "/var/www" php-cli bash
-
 init:
 	@make -s build-images
 	@make -s start-containers
 	@docker-compose exec -w "/var/www" php-cli composer install
+
+include ./makefiles/test.mk
+include ./makefiles/composer.mk
+include ./makefiles/shells.mk
