@@ -1,0 +1,17 @@
+Product:
+  type: object
+  config:
+    description: "A product"
+    fields:
+      id:
+        type: "String!"
+        description: "Internal UUID of the product"
+      name:
+        type: "String!"
+        description: "The product name"
+      price:
+        type: "Float!"
+        description: "The product price"
+      image:
+        type: "String!"
+        description: "Image path"

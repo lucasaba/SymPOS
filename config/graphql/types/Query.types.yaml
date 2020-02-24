@@ -1,0 +1,13 @@
+Query:
+  type: object
+  config:
+    description: "Products ORM repository"
+    fields:
+      product:
+        type: "Product"
+        args:
+          id:
+            description: "Resolves using the apartment id."
+            type: "String"
+        resolve: "@=resolver('Product', [args])"
+

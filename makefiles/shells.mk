@@ -6,3 +6,6 @@ fpm-shell:
 
 nginx-shell:
 	@docker-compose exec -w "/var/www" nginx bash
+
+mysql-shell:
+	@docker-compose exec mariadb bash
