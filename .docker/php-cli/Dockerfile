@@ -15,7 +15,6 @@ RUN wget https://get.symfony.com/cli/installer -O - | bash \
 RUN groupadd -g 1000 user \
     && mkdir /home/user \
     && useradd -u 1000 -g 1000 -d /home/user -s /bin/bash user \
-    && chown user: /home/user \
-    && chown user: /var/www
+    && chown user: /home/user
 
 USER user
