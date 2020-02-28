@@ -9,4 +9,5 @@ before_install:
 
 script:
   - docker-compose up -d
+  - docker-compose exec -w "/var/www" php-cli composer install
   - docker-compose exec -w "/var/www" php-cli ./bin/phpunit
