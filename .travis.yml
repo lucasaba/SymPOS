@@ -7,11 +7,7 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
 
-jobs:
-  include:
-    - stage: start-container
-      script: docker-compose up -d
-    - stage: install-deps
-      script: docker-compose exec -w "/var/www" php-fpm composer install
-    - stage: test
-      script: docker-compose exec -w "/var/www" php-fpm ./bin/phpunit
+script:
+  - docker-compose up -d
+  - docker-compose exec -w "/var/www" php-cli composer install
+  - docker-compose exec -w "/var/www" php-cli ./bin/phpunit
