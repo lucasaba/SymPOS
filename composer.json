@@ -16,6 +16,7 @@
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
+        "ext-json": "*",
         "overblog/graphiql-bundle": "^0.2.1",
         "symfony/debug-pack": "^1.0",
         "symfony/maker-bundle": "^1.14",

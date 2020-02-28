@@ -3,8 +3,8 @@ ProductInput:
   config:
     fields:
       name:
-        type: String
+        type: String!
       price:
-        type: Float
+        type: Float!
       image:
-        type: String
+        type: String!
