@@ -1,0 +1,10 @@
+CategoryInput:
+  type: input-object
+  config:
+    fields:
+      name:
+        type: "String!"
+      image:
+        type: "String!"
+      products:
+        type: "[ProductInput]"

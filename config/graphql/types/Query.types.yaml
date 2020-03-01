@@ -7,7 +7,14 @@ Query:
         type: "Product"
         args:
           id:
-            description: "Resolves using the apartment id."
+            description: "Resolves using the product id."
             type: "String"
         resolve: "@=resolver('Product', [args])"
+      category:
+        type: "Category"
+        args:
+          id:
+            description: "Resolves using the category id."
+            type: "String"
+        resolve: "@=resolver('Category', [args])"
 

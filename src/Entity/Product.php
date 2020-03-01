@@ -38,6 +38,12 @@ class Product
      */
     private string $image;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
+     */
+    private Category $category;
+
     public function getId(): ?UuidInterface
     {
         return $this->id;
@@ -75,6 +81,18 @@ class Product
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

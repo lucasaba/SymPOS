@@ -1,0 +1,17 @@
+Category:
+  type: object
+  config:
+    description: "A category"
+    fields:
+      id:
+        type: "String!"
+        description: "Internal UUID of the category"
+      name:
+        type: "String!"
+        description: "The product name"
+      image:
+        type: "String!"
+        description: "Image path"
+      products:
+        type: "[Product]"
+        description: "Products in the category"

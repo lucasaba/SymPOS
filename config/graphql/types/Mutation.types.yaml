@@ -4,7 +4,13 @@ Mutation:
     fields:
       addProduct:
         type: Product!
-        resolve: "@=mutation('addProduct', [args])"
+        resolve: "@=service('app.resolver.items').addProduct(args)"
         args:
           input:
             type: ProductInput!
+      addCategory:
+        type: Category!
+        resolve: "@=service('app.resolver.categories').addCategory(args)"
+        args:
+          input:
+            type: CategoryInput!

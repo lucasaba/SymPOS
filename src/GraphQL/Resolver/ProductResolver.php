@@ -26,6 +26,25 @@ class ProductResolver implements ResolverInterface, AliasedInterface
     }
 
     /**
+     * @param Argument $args
+     *
+     * @return Product
+     */
+    public function addProduct(Argument $args): Product
+    {
+        $rawArgs = $args->getArrayCopy();
+
+        $product = new Product();
+        $product->setName($rawArgs['input']['name'])
+            ->setPrice($rawArgs['input']['price'])
+            ->setImage($rawArgs['input']['image']);
+        $this->em->persist($product);
+        $this->em->flush();
+
+        return $product;
+    }
+
+    /**
      * @inheritDoc
      */
     public static function getAliases(): array

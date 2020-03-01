@@ -45,5 +45,7 @@ services:
       MYSQL_DATABASE: sympos
       MYSQL_USER: sympos_user
       MYSQL_PASSWORD: sympos_password
+    ports:
+    - 33306:3306
     networks:
       - web-network
